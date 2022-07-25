@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export IMAGE=$(sed -n '1p' /tmp/.auth)
+export TAG=$(sed -n '2p' /tmp/.auth)
+export PASS=$(sed -n '3p' /tmp/.auth)
+echo "PASS is private" $PASS
+
+docker login -u anhtuanit93 -p $PASS
+cd ~/mvn && docker-compose pull && docker-compose up -d
