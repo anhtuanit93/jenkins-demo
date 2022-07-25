@@ -6,4 +6,4 @@ export PASS=$(sed -n '3p' /tmp/.auth)
 echo "PASS is private" $PASS
 
 docker login -u anhtuanit93 -p $PASS
-cd ~/mvn && docker compose pull && docker compose up -d
+docker run -d anhtuanit93/$IMAGE:$TAG
