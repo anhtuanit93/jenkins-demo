@@ -27,8 +27,8 @@ pipeline {
             //agent {label 'node2'}
             steps {
                 sh '''
-                    ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
-                    ./jenkins/build/build.sh
+                    /bin/bash jenkins/build/mvn.sh mvn -B -DskipTests clean package
+                    /bin/bash jenkins/build/build.sh
                 '''
             }
 
@@ -42,14 +42,14 @@ pipeline {
         stage('Push') {
             //agent {label 'node2'}
             steps {
-                sh './jenkins/push/push.sh'
+                sh '/bin/bash jenkins/push/push.sh'
             }
         }
 
         stage('Deploy') {
             //agent {label 'node1'}
             steps {
-                sh './jenkins/deploy/deploy.sh'
+                sh '/bin/bash jenkins/deploy/deploy.sh'
             }
         }
     }
