@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             //agent {label 'node2'}
             steps {
-                sh 'sh jenkins/test/mvn.sh mvn test'
+                sh '/bin/bash jenkins/test/mvn.sh mvn test'
             }
 
             post {
